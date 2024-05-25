@@ -209,6 +209,41 @@ create table Vuelo(
 	idAeronave int not null
 );
 
+-- Tablas de Roles
+
+create table roles (
+	idRol int primary key auto_increment,
+	rol varchar(50) not null
+);
+
+create table opciones(
+	idOpcion int primary key auto_increment,
+	opcion varchar(50) not null
+);
+
+create table asignacionRolesOpciones(
+	idAsignacion int primary key auto_increment,
+	idRol int not null,
+	idOpcion int not null
+);
+
+create table usuarios(
+	idUsuarios int primary key auto_increment,
+	usuario varchar(50) not null,
+	contrasenia varchar(50) not null,
+	idRol int not null,
+	idEmpleado int not null
+	);
+    
+create table usuariosPasajero(
+	idUsuariosPasajero int primary key auto_increment,
+	usuario varchar(50) not null,
+	contrasenia varchar(50) not null,
+	idRol int not null,
+	idPasajero int not null
+	);
+
+
 -- Llaves foraneas de direcciones
 alter table Estado add foreign key (idPais) references Pais(idPais);
 alter table Ciudad add foreign key (idEstado) references Estado(idEstado);
@@ -271,3 +306,12 @@ alter table Escala add foreign key (idAeropuerto) references Aeropuerto(idAeropu
 alter table Destino add foreign key (idAeropuerto) references Aeropuerto(idAeropuerto);
 
 alter table Origen add foreign key (idAeropuerto) references Aeropuerto(idAeropuerto);
+
+-- LLAVES ROLES Y USUARIOS
+
+alter table asignacionRolesOpciones add foreign key (idRol) references roles(idRol);
+alter table asignacionRolesOpciones add foreign key (idOpcion) references opciones(idOpcion);
+alter table usuarios add foreign key (idRol) references roles(idRol);
+alter table usuarios add foreign key (idEmpleado) references empleado(idEmpleado);
+alter table usuariosPasajero add foreign key (idRol) references roles(idRol);
+alter table usuariosPasajero add foreign key (idPasajero) references Pasajero(idPasajero);

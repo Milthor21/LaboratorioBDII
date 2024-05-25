@@ -162,19 +162,20 @@ values
     ('L','4'),
     ('XXL','5');
 
+
 -- Tablas de empleado    
-insert into empleado(nombre, apellidos, DUI, idDireccion, pasaporte, idVisa, genero, celular, idCargo)
+insert into empleado(idEmpleado, nombre, apellidos, DUI, idDireccion, pasaporte, idVisa, genero, celular, idCargo)
 values
-	('Gilberto', 'Menendez','06056367-9','1','B123456787','1','M','72290987','8'),
-	('Augusto', 'Ramirez','06056333-9','2','B121156787','1','M','79871234','1'),
-    ('Genesis', 'Pereira','02356367-1','3','B123423455','1','F','72290447','2'),
-	('Fermin', 'Tarso','06053434-3','4','B121152287','1','M','71231234','3'),
-	('Enzo', 'Martinez','06056367-4','2','B156756787','1','M','76771234','4'),
-    ('Mario', 'Menendez','06786367-9','1','B123456457','1','M','72290987','9'),
-	('jorge', 'Ramirez','06476333-9','2','B121156477','1','M','79871124','9'),
-    ('tono', 'Pereira','02156367-1','3','B123423365','1','M','72292347','9'),
-	('Tana', 'Tarso','06055234-3','4','B121152587','1','M','71231474','9'),
-	('Juan', 'Martinez','06073367-4','2','B156746787','1','M','76743234','9');
+	('1','Gilberto', 'Menendez','06056367-9','1','B123456787','1','M','72290987','1'),
+	('2','Augusto', 'Ramirez','06056333-9','2','B121156787','1','M','79871234','2'),
+	('3','Fermin', 'Tarso','06053434-3','4','B121152287','1','M','71231234','3'),
+	('4','Enzo', 'Martinez','06056367-4','2','B156756787','1','M','76771234','4'),
+    ('5','Mario', 'Menendez','06786367-9','1','B123456457','1','M','72290987','5'),
+	('6','jorge', 'Ramirez','06476333-9','2','B121156477','1','M','79871124','6'),
+    ('7','tono', 'Pereira','02156367-1','3','B123423365','1','M','72292347','7'),
+	('8','Tana', 'Tarso','06055234-3','4','B121152587','1','M','71231474','8'),
+	('9','Juan', 'Martinez','06073367-4','2','B156746787','1','M','76743234','9'),
+    ('10','Dani', 'Huo','06073467-4','2','B146746787','1','M','76583234','10');
     
 -- Tablas de boleto
 insert into boleto (idBoleto, idPasajero, idReservacion, idVuelo, idAsiento, idSalida, idTarifa)
@@ -185,21 +186,15 @@ values
     ('4','5','3','1','5','1','3'),
     ('5','1','4','2','3','2','3');
 
+
 -- Tablas de sobrecargo
 insert into sobrecargo(idSobrecargo, licencia, tipo, idEmpleado) values
-	('1', '0044078', 'A', '1'),
-	('2', '2007785', 'B', '2'),
-	('3', '0078524', 'A', '4'),
-	('4', '0002541', 'B', '5'),
-	('5', '0035001', 'B', '3');
-    
+	('1', '0044078', 'A', '9');
+
 -- Tablas de piloto
 insert into piloto(idPiloto, licencia, tipo, idEmpleado) values
-	('1', '7040078', 'A', '6'),
-	('2', '5007785', 'B', '7'),
-	('3', '5270024', 'A', '8'),
-	('4', '8002541', 'B', '9'),
-	('5', '7535001', 'B', '10'); 
+	('1', '7040078', 'A', '8');
+	
     
 -- Tablas de equipaje
 insert into equipaje(idEquipaje, idTipoEquipaje, idPasajero, Peso) values
@@ -237,18 +232,17 @@ values
     ('5','Toronto','5');
     
 -- Tablas de cargo
-insert into cargo(cargo)
+insert into cargo(idcargo,cargo)
 values
-	('SysAdmin'),
-    ('CEO'),
-    ('Contabilidad'),
-    ('Inventario'),
-    ('RRHH'),
-    ('Ingeniero'),
-    ('Planificador'),
-    ('Ejecutivo'),
-    ('Piloto'),
-    ('Sobrecargo');
+	('1','SysAdmin'),
+    ('2','Soporte'),
+    ('3','Contabilidad'),
+    ('4','Inventario'),
+    ('5','RRHH'),
+    ('6','Ingeniero'),
+    ('7','Planificador'),
+    ('8','Piloto'),
+    ('9','Sobrecargo');
 
 -- Tablas de direcciones
 insert into direcciones(linea1, idCiudad, codigoPostal)
@@ -268,6 +262,173 @@ values
     ('234567890133333','Negocios','4'),
     ('456789012344444','Transito','5');
     
+
+
+insert into roles(rol) values
+	('SysAdmin'), -- 1
+    ('Soporte'), -- 2
+    ('Contabilidad'), -- 3
+    ('Inventario'), -- 4
+    ('RRHH'), -- 5
+    ('Ingeniero'), -- 6
+    ('Planificador'), -- 7
+    ('Cliente'); -- 8
+
+insert into opciones(opcion) values
+('Gestionar Asiento'), -- 1
+('Gestionar Boleto'), -- 2
+('Gestionar Cargo'), -- 3
+('Gestionar Ciudad'), -- 4
+('Gestionar Clases'), -- 5
+('Gestionar Destino'), -- 6
+('Gestionar Direcciones'), -- 7
+('Gestionar Empleado'), -- 8
+('Gestionar Equipaje'), -- 9
+('Gestionar Escala'), -- 10
+('Gestionar Estado'), -- 11
+('Gestionar Fecha'), -- 12
+('Gestionar Itinerario'), -- 13
+('Gestionar MetodoPago'), -- 14
+('Gestionar Millas'), -- 15
+('Gestionar Origen'), -- 16
+('Gestionar Pago'), -- 17
+('Gestionar Pais'), -- 18
+('Gestionar Pasajero'), -- 19
+('Gestionar Piloto'), -- 20
+('Gestionar Regreso'), -- 21
+('Gestionar Reservacion'), -- 22
+('Gestionar Salida'), -- 23
+('Gestionar Sobrecargo'), -- 24
+('Gestionar Tarifa'), -- 25
+('Gestionar TipoEquipaje'), -- 26
+('Gestionar Visa'), -- 27
+('Gestionar Vuelo'), -- 28
+('Gestionar asignacionderolesopciones'),-- 29
+('Gestionar usuarios'), -- 30
+('Gestionar usuariospasajero'), -- 31
+('Gestionar roles'), -- 32
+('Gestionar opciones'),-- 33
+('Gestionar Aeronave'), -- 34
+('Gestionar Aeropuerto'); -- 35
+
+insert into asignacionrolesopciones (idRol, idOpcion) values
+	-- SysAdmin: Todos los permisos
+    ('1','1'), ('1','2'), ('1','3'), ('1','4'), ('1','5'), ('1','6'), 
+    ('1','7'), ('1','8'), ('1','9'), ('1','10'), ('1','11'), ('1','12'), 
+    ('1','13'), ('1','14'), ('1','15'), ('1','16'), ('1','17'), ('1','18'), 
+    ('1','19'), ('1','20'), ('1','21'), ('1','22'), ('1','23'), ('1','24'), 
+    ('1','25'), ('1','26'), ('1','27'), ('1','28'), ('1','29'), ('1','30'), 
+    ('1','31'), ('1','32'), ('1','33'),('1','34'),('1','35'),
+
+	-- Soporte: 
+    ('2','6'), -- Destino
+    ('2','1'), -- Asiento
+    ('2','11'), -- Estado
+    ('2','25'), -- tarifa
+    ('2','14'), -- MetodoPago
+    ('2','7'), -- Direcciones
+    ('2','17'), -- pagos
+    ('2','13'), -- itinerario
+    ('2','12'), -- fecha
+    ('2','23'), -- salida
+    ('2','15'), -- millas
+    ('2','16'), -- origen
+    ('2','28'), -- vuelo
+    ('2','26'), -- tipoEquipaje
+    ('2','4'), -- ciudad
+    ('2','2'), -- boleto
+    ('2','22'), -- reservacion
+    ('2','19'), -- pasajero
+    ('2','27'), -- visa
+    ('2','5'), -- clases
+    ('2','18'), -- pais
+    ('2','31'), -- usuariospasajero
+    ('2','30'), -- usuarios
+    
+    -- Contabilidad: 
+    ('3','17'), -- pago
+    ('3','25'), -- tarifa
+    ('3','15'), -- millas
+    ('3','14'), -- metodoPago
+    
+    -- Inventario: 
+    ('4','34'), -- Aeronave
+    ('4','9'), -- Equipaje
+    
+    -- RRHH: 
+    ('5','8'), -- Empleado
+    ('5','3'), -- Cargo
+    ('5','24'), -- Sobrecargo
+    ('5','20'), -- Piloto
+    ('5','27'), -- Visa
+    ('5','7'), -- Direccion
+    ('5','11'), -- Estado
+    ('5','4'), -- Ciudad
+    ('5','18'), -- Pais
+    
+	-- Ingeniero: 
+    ('6','34'), -- Aeronave
+    ('6','5'), -- Clases
+    
+    -- Planificador: 
+    ('7','7'), -- Direccion
+    ('7','11'), -- Estado
+    ('7','4'), -- ciudad
+    ('7','23'), -- salida
+    ('7','21'), -- regreso
+    ('7','28'), -- vuelo
+    ('7','16'), -- origen
+    ('7','6'), -- destino
+    ('7','10'), -- escala
+    ('7','18'), -- pais
+
+    
+    -- Cliente: 
+    ('8','6'), -- Destino
+    ('8','1'), -- Asiento
+    ('8','11'), -- Estado
+    ('8','25'), -- tarifa
+    ('8','14'), -- MetodoPago
+    ('8','7'), -- Direcciones
+    ('8','17'), -- pagos
+    ('8','13'), -- itinerario
+    ('8','12'), -- fecha
+    ('8','23'), -- salida
+    ('8','15'), -- millas
+    ('8','16'), -- origen
+    ('8','28'), -- vuelo
+    ('8','26'), -- tipoEquipaje
+    ('8','4'), -- ciudad
+    ('8','2'), -- boleto
+    ('8','22'), -- reservacion
+    ('8','19'), -- pasajero
+    ('8','27'), -- visa
+    ('8','5'), -- clases
+    ('8','18'), -- pais
+    ('8','31'); -- usuariospasajero
+    
+
+
+insert into usuarios(usuario, contrasenia, idRol, idEmpleado) values
+	('Admin_Gil','1234','1','1'), -- 1
+	('Sop_gil','1234','2','2'), -- 2
+	('Cont_Fermin','1234','3','3'), -- 3
+	('Inven_Enzo','1234','4','4'), -- 4
+	('RRHH_Mario','1234','5','5'), -- 5
+	('ING_Jorge','1234','6','6'), -- 6
+	('PLAN_Tono','1234','7','7'); -- 7
+
+insert into usuariosPasajero(usuario, contrasenia, idRol, idPasajero) values
+	('roberto_Ore','1234','8','1'), -- 1
+	('Tatiana_Flor','1234','8','2'), -- 2
+	('Isaias_Garz','1234','8','3'), -- 3
+	('Milton_Mezqui','1234','8','4'), -- 4
+	('Samuel_Flor','1234','8','5'); -- 5
+
+
+
+
+
 
 
 
